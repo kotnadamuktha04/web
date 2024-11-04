@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrack - Fitness Progress Tracker</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="fitness.css"> 
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f7f6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(90deg, #2b5876, #4e4376);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-weight: 700;
+            font-size: 36px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: background 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Section styles */
+        main {
+            padding: 40px 20px;
+        }
+
+        .section {
+            background: white;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 900px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #4e4376;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #4e4376;
+            color: white;
+            font-weight: bold;
+        }
+
+        button {
+            background: #4e4376;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background: #6b5b95;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: #2b5876;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        #quote {
+            font-size: 18px;
+            font-style: italic;
+        }
+    </style>
+    <script>
+        function getRandomQuote() {
+            const quotes = [
+                "The only bad workout is the one that didn't happen.",
+                "Don't limit your challenges. Challenge your limits.",
+                "Sweat is just fat crying.",
+                "Success starts with self-discipline.",
+                "The pain you feel today will be the strength you feel tomorrow."
+            ];
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            return quotes[randomIndex];
+        }
+
+        function getRandomWorkoutData() {
+            const totalWorkouts = Math.floor(Math.random() * 50) + 1; // Random number between 1 and 50
+            const caloriesBurned = Math.floor(Math.random() * 3000) + 500; // Random number between 500 and 3500
+            const activeDays = Math.floor(Math.random() * 30) + 1; // Random number between 1 and 30
+
+            document.getElementById('total-workouts').textContent = totalWorkouts;
+            document.getElementById('calories-burned').textContent = caloriesBurned + ' kcal';
+            document.getElementById('active-days').textContent = activeDays;
+        }
+
+        window.onload = function() {
+            document.getElementById('quote').textContent = getRandomQuote();
+            getRandomWorkoutData();
+        };
+    </script>
+</head>
+<body>
+    
+    <header>
+        <div class="logo">
+            <h1>FitTrack</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#exercises">Exercises</a></li>
+                <li><a href="#progress">Progress</a></li>
+                <li><a href="#goals">Goals</a></li>
+                <li><a href="#settings">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section">
+            <h2>Dashboard</h2>
+            <table>
+                <tr>
+                    <th>Total Workouts</th>
+                    <th>Calories Burned</th>
+                    <th>Active Days</th>
+                </tr>
+                <tr>
+                    <td id="total-workouts">20</td>
+                    <td id="calories-burned">1200 kcal</td>
+                    <td id="active-days">15</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Exercises Section -->
+        <section id="exercises" class="section">
+            <h2>Exercises</h2>
+            <table>
+                <tr>
+                    <th>Exercise</th>
+                    <th>Duration/Reps</th>
+                </tr>
+                <tr>
+                    <td>Running</td>
+                    <td>30 min</td>
+                </tr>
+                <tr>
+                    <td>Squats</td>
+                    <td>50 reps</td>
+                </tr>
+                <tr>
+                    <td>Push-ups</td>
+                    <td>40 reps</td>
+                </tr>
+                <tr>
+                    <td>Cycling</td>
+                    <td>45 min</td>
+                </tr>
+            </table>
+            <button>Add New Exercise</button>
+        </section>
+
+        <!-- Progress Section -->
+        <section id="progress" class="section">
+            <h2>Progress</h2>
+            <div class="progress-chart">
+                <!-- Progress chart would be integrated here -->
+                <p>Progress chart will be displayed here.</p>
+            </div>
+        </section>
+
+        <!-- Goals Section -->
+        <section id="goals" class="section">
+            <h2>Fitness Goals</h2>
+            <table>
+                <tr>
+                    <th>Goal</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>Run 5 km in one session</td>
+                    <td>In Progress</td>
+                </tr>
+                <tr>
+                    <td>100 push-ups in a row</td>
+                    <td>Not Started</td>
+                </tr>
+                <tr>
+                    <td>Reach 10% body fat</td>
+                    <td>Completed</td>
+                </tr>
+            </table>
+            <button>Add New Goal</button>
+        </section>
+
+        <!-- Settings Section -->
+        <section id="settings" class="section">
+            <h2>Settings</h2>
+            <p>Manage your profile and preferences.</p>
+            <button>Edit Profile</button>
+            <button>Change Password</button>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p id="quote"></p>
+    </footer>
+
+</body>
+</html>
